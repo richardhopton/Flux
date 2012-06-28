@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow xmlns="http://schemas.codebuzz.co.uk/netfx/2011/xaml/workflow"
+          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Workflow.Arguments>
+        <ArgumentDefinition Direction="InOut"
+                            Name="Count"
+                            Type="x:Int32" />
+    </Workflow.Arguments>
+    <Sequence>
+        <ShowMessageActivity Text="{Literal While &lt; 10}"/>
+        <ShowMessageActivity>
+            <TextFormat Format="{Literal &quot;Before Start, {0}&quot;}">
+                <TextFormat.Items>
+                    <GetValue x:TypeArguments="x:Int32"
+                              Expression="{Argument Count}"/>
+                </TextFormat.Items>
+            </TextFormat>
+        </ShowMessageActivity>
+        <While>
+            <While.Condition>
+                <Compare Operand="{Argument Count}"
+                         Comparison="LessThan"
+                         Value="{Literal 10}"/>
+            </While.Condition>
+            <InvokeXamlWorkflow FileName="SequenceWorkflow.xaml">
+                <InvokeXamlWorkflow.InputArguments>
+                    <InputArgument Name="Count" Value="{Argument Count}"/>
+                </InvokeXamlWorkflow.InputArguments>
+                <InvokeXamlWorkflow.OutputArguments>
+                    <OutputArgument Name="Count" Value="{Argument Count}"/>
+                </InvokeXamlWorkflow.OutputArguments>
+            </InvokeXamlWorkflow>
+        </While>
+    </Sequence>
+</Workflow>
+          

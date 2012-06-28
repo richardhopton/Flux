@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow xmlns="http://schemas.codebuzz.co.uk/netfx/2011/xaml/workflow"
+          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Workflow.Arguments>
+        <ArgumentDefinition Direction="InOut"
+                            Name="Count"
+                            Type="x:Int32" />
+    </Workflow.Arguments>
+    <Sequence>
+        <ShowMessageActivity Text="{Argument Count}"/>
+        <Assign x:TypeArguments="x:Int32"
+                        To="{Argument Count}">
+            <Assign.Value>
+                <Add x:TypeArguments="x:Int32,x:Int32,x:Int32"
+                             Left="{Argument Count}"
+                             Right="{Literal 1}"/>
+            </Assign.Value>
+        </Assign>
+    </Sequence>
+</Workflow>

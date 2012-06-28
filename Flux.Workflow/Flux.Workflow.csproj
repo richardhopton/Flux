@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{79B2F9EB-830B-442A-89B1-5975474CBE2A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Flux.Workflow</RootNamespace>
+    <AssemblyName>Flux.Workflow</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\CommonAssemblyInfo.cs">
+      <Link>CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Activities\Add.cs" />
+    <Compile Include="Activities\AddToCollection.cs" />
+    <Compile Include="Activities\AddToDictionary.cs" />
+    <Compile Include="Activities\And.cs" />
+    <Compile Include="Activities\Assign.cs" />
+    <Compile Include="Activities\ClearCollection.cs" />
+    <Compile Include="Activities\ClearDictionary.cs" />
+    <Compile Include="Activities\Compare.cs" />
+    <Compile Include="Activities\TextConcat.cs" />
+    <Compile Include="Activities\TextFormat.cs" />
+    <Compile Include="Activities\Repeat.cs" />
+    <Compile Include="Activities\Delay.cs" />
+    <Compile Include="Activities\Divide.cs" />
+    <Compile Include="Activities\DoWhile.cs" />
+    <Compile Include="Activities\ExistsInCollection.cs" />
+    <Compile Include="Activities\ExistsInDictionary.cs" />
+    <Compile Include="Activities\ForEach.cs" />
+    <Compile Include="Activities\GetPropertyValue.cs" />
+    <Compile Include="Activities\GetValue.cs" />
+    <Compile Include="Activities\If.cs" />
+    <Compile Include="Activities\InvokeXamlWorkflow.cs" />
+    <Compile Include="Activities\Literal.cs" />
+    <Compile Include="Activities\Multiply.cs" />
+    <Compile Include="Activities\Or.cs" />
+    <Compile Include="Activities\RemoveFromCollection.cs" />
+    <Compile Include="Activities\RemoveFromDictionary.cs" />
+    <Compile Include="Activities\Sequence.cs" />
+    <Compile Include="Activities\SetPropertyValue.cs" />
+    <Compile Include="Activities\ShowMessageActivity.cs" />
+    <Compile Include="Activities\Subtract.cs" />
+    <Compile Include="Activities\Switch.cs" />
+    <Compile Include="Activities\While.cs" />
+    <Compile Include="Activity.cs" />
+    <Compile Include="ArgumentDefinition.cs" />
+    <Compile Include="Context.cs" />
+    <Compile Include="CurrentItemDefinition.cs" />
+    <Compile Include="Interfaces\Enumerations.cs" />
+    <Compile Include="Interfaces\IActivity.cs" />
+    <Compile Include="Interfaces\IAncestorProvider.cs" />
+    <Compile Include="Interfaces\IArgumentDefinition.cs" />
+    <Compile Include="Interfaces\IContext.cs" />
+    <Compile Include="Interfaces\IEnumerableVariableScope.cs" />
+    <Compile Include="Interfaces\IInputValue.cs" />
+    <Compile Include="Interfaces\IOutputValue.cs" />
+    <Compile Include="Interfaces\IValueDefinition.cs" />
+    <Compile Include="Interfaces\IVariableDefinition.cs" />
+    <Compile Include="Interfaces\IVariableScope.cs" />
+    <Compile Include="Interfaces\IWorkflow.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="ValueDefinition.cs" />
+    <Compile Include="ValueReference.cs" />
+    <Compile Include="VariableDefinition.cs" />
+    <Compile Include="VariableScope.cs" />
+    <Compile Include="Workflow.cs" />
+    <Compile Include="WorkflowInvoker.cs" />
+    <Compile Include="Xaml\ArgumentExtension.cs" />
+    <Compile Include="Xaml\CompareConverter.cs" />
+    <Compile Include="Xaml\CompareExtension.cs" />
+    <Compile Include="Xaml\CurrentItemExtension.cs" />
+    <Compile Include="Xaml\LiteralConverter.cs" />
+    <Compile Include="Xaml\LiteralExtension.cs" />
+    <Compile Include="Xaml\ValueExtension.cs" />
+    <Compile Include="Xaml\ValueReferenceConverter.cs" />
+    <Compile Include="Xaml\VariableExtension.cs" />
+    <Compile Include="Xaml\XamlWorkflow.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Flux.Conditions\Flux.Conditions.csproj">
+      <Project>{6E3AE46A-8182-4E68-A181-6288E6AA4482}</Project>
+      <Name>Flux.Conditions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Flux.Core\Flux.Core.csproj">
+      <Project>{C851F960-F7C2-4733-8ABE-41EAB42C73DE}</Project>
+      <Name>Flux.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

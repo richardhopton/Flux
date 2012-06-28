@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow xmlns="http://schemas.codebuzz.co.uk/netfx/2011/xaml/workflow"
+          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Workflow.Arguments>
+        <ArgumentDefinition Direction="In"
+                            Name="Message"
+                            Type="x:String" />
+        <ArgumentDefinition Direction="Out"
+                            Name="Response"
+                            Type="x:String" />
+    </Workflow.Arguments>
+    <Sequence>
+        <Sequence.Variables>
+            <VariableDefinition Name="CopyValueOutput" 
+                                Type="x:String" />
+        </Sequence.Variables>
+        <Switch x:TypeArguments="x:String" 
+                Expression="{Argument Message}">
+            <Assign x:TypeArguments="x:String"
+                       x:Key="Hello"
+                       Value="{Literal &quot;Oh, Hi&quot;}"
+                       To="{Variable CopyValueOutput}"/>
+            <Assign x:TypeArguments="x:String"
+                       x:Key="Goodbye" 
+                       Value="{Literal &quot;Bye bye&quot;}"
+                       To="{Variable CopyValueOutput}"/>
+        </Switch>
+        <Assign x:TypeArguments="x:String" 
+                   To="{Variable CopyValueOutput}">
+            <Assign.Value>
+                <TextConcat>
+                    <GetValue x:TypeArguments="x:String"
+                              Expression="{Variable CopyValueOutput}"/>
+                    <GetValue x:TypeArguments="x:String"
+                              Expression="{Literal &quot; Richard&quot;}"/>
+                </TextConcat>
+            </Assign.Value>
+        </Assign>
+        <ShowMessageActivity Text="{Variable CopyValueOutput}"/>
+        <Assign x:TypeArguments="x:String" 
+                   Value="{Variable CopyValueOutput}"
+                   To="{Argument Response}"/>
+    </Sequence>
+</Workflow>
